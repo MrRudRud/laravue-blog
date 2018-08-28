@@ -981,6 +981,10 @@ window.Vue = __webpack_require__(34);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 
+var app = new Vue({
+  el: '#app'
+});
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when

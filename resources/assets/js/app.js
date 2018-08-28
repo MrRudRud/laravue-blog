@@ -5,7 +5,9 @@ import Buefy from 'buefy'
 
 Vue.use(Buefy)
 
-
+const app = new Vue({
+    el: '#app'
+});
 
 /**
  * First we will load all of this project's JavaScript dependencies which
