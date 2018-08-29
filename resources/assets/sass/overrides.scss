@@ -1,3 +1,24 @@
+
+body {
+    background: $white-ter !important;
+}
+
+//  ==============================
+//  ======== Text Overrides ======
+//  ==============================
+
+.is-muted {
+    color: $grey-light !important;
+}
+
+a.is-muted:hover {
+    color: $grey !important;
+}
+
+.navbar {
+    min-height: 4.25rem !important; 
+}
+
 .navbar-item {
     position: relative;
 
@@ -23,3 +44,4 @@
     }
 
 }
+

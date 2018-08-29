@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="container">
 
                 {{-- LEFT --}}
@@ -39,9 +39,9 @@
                 
                 {{-- RIGHT  --}}
                 <div class="navbar-end">
-                @if (!Auth::guest())
-                    <a href="#" class="navbar-item">Login</a>
-                    <a href="#" class="navbar-item">Join</a>
+                @if (Auth::guest())
+                <a href="{{route('login')}}" class="navbar-item">Login</a>
+                <a href="{{route('register')}}" class="navbar-item">Join The Comunity</a>
                 @else
                     <div class="navbar-item is-aligned-right has-dropdown is-hoverable">
                             <a class="navbar-link">Hello RudRud</a>
