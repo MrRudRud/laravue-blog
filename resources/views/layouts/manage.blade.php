@@ -8,14 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Blog-vue') }}</title>
+    <title> Blog Vue - MANAGEMENT </title></title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        @include('_includes.nav.main')
+
+    @include('_includes.nav.main')
+    @include('_includes.nav.manage')
+
+    <div class="app">
         @yield('content')
     </div>
 
