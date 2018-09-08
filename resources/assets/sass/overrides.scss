@@ -43,5 +43,12 @@ a.is-muted:hover {
         display: block;
     }
 
+    &.navbar-dropdown, .is-right a:hover {
+        border-radius: 2px;
+        background: turquoise;
+        display: block;
+        color: white;
+    }
+
 }
 

@@ -18,11 +18,12 @@
     @include('_includes.nav.main')
     @include('_includes.nav.manage')
 
-    <div class="app">
+    <div id="app" class="management-area">
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('script')
 </body>
 </html>

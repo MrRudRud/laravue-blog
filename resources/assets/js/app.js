@@ -1,13 +1,22 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+import Vue from 'vue'
 import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
 
 Vue.use(Buefy)
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app',
+//     data: {
+//         auto_password: true
+//     }
+// });
+
+// const app = new Vue({
+//     el: '#app'
+// });
 
 /**
  * First we will load all of this project's JavaScript dependencies which

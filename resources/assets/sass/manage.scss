@@ -1,10 +1,37 @@
-body {
-    background: whitesmoke;
+// Pagination
+.pagination-link.is-current {
+    background-color: #00d1b2 !important;
 }
+
 .side-menu {
     position: fixed;
     height: 500vh;
     width: 200px;
     background-color: white;
     overflow-y: scroll;
+}
+
+.menu-list a:hover {
+    border-radius: 2px;
+    background: turquoise;
+    display: block;
+    padding: 0.5em 0.75em;
+    color: white;
+}
+
+.management-area {
+    background-color: whitesmoke !important;
+    position: absolute;
+    top: 4rem;
+    left: 200px;
+    right: 0;
+}
+
+.flex-container {
+    margin: 5px 25px;
+}
+
+pre {
+    font-size: 1em !important;
+    padding: 0 !important; 
 }
