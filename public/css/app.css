@@ -8865,7 +8865,7 @@ a.box:active {
 }
 
 .tag:not(body).is-delete:active {
-  background-color: #dcdbdb;
+  background-color: #dbdbdb;
 }
 
 .tag:not(body).is-rounded {
