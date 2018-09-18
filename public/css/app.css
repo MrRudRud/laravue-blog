@@ -15009,6 +15009,7 @@ label.panel-block:hover {
 .autocomplete .dropdown-menu {
   display: block;
   min-width: 100%;
+  max-width: 100%;
 }
 
 .autocomplete .dropdown-menu.is-opened-top {
@@ -15019,6 +15020,14 @@ label.panel-block:hover {
 .autocomplete .dropdown-content {
   overflow: auto;
   max-height: 200px;
+}
+
+.autocomplete .dropdown-item,
+.autocomplete .dropdown .dropdown-menu .has-link a,
+.dropdown .dropdown-menu .has-link .autocomplete a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .autocomplete .dropdown-item.is-hovered,
@@ -15063,7 +15072,11 @@ label.panel-block:hover {
 }
 
 .b-checkbox.checkbox input[type=checkbox] {
-  display: none;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  outline: none;
+  z-index: -1;
 }
 
 .b-checkbox.checkbox input[type=checkbox] + .check {
@@ -15691,7 +15704,6 @@ label.panel-block:hover {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  z-index: 999;
 }
 
 .loading-overlay.is-active {
@@ -15701,6 +15713,7 @@ label.panel-block:hover {
 }
 
 .loading-overlay.is-full-page {
+  z-index: 999;
   position: fixed;
 }
 
@@ -16028,7 +16041,11 @@ label.panel-block:hover {
 }
 
 .b-radio.radio input[type=radio] {
-  display: none;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  outline: none;
+  z-index: -1;
 }
 
 .b-radio.radio input[type=radio] + .check {
@@ -16327,6 +16344,8 @@ label.panel-block:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 2.75em;
   height: 1.575em;
   padding: 0.2em;
@@ -16887,6 +16906,10 @@ label.panel-block:hover {
 
 .taginput .taginput-container .autocomplete .icon {
   height: 1.7em;
+}
+
+.taginput .taginput-container .autocomplete > .control.is-loading::after {
+  top: 0.375em;
 }
 
 .timepicker .dropdown,

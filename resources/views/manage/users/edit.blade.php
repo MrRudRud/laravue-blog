@@ -23,7 +23,7 @@
                     <div class="field">
                         <label for="email" class="label">Email</label>
                         <p class="control">
-                            <input type="text" class="input" name="email" id="email" value="{{$user->email}}">
+                        <input type="text" class="input" name="email" id="email" value="{{$user->email}}">
                         </p>
                     </div>
                     <div class="field">
@@ -41,21 +41,42 @@
                                     <input type="text" class="input" name="password" id="password" v-if="password_options == 'manual'" placeholder="Manually give a password to this user">
                                 </p>
                             </div>
-
+                        {{-- input ini yang akan menjadi acuan value roles yg diupdate --}}
+                        <input type="hidden" name="roles" :value="rolesSelected"> 
                     </div>
-                    
-                    <button class="button is-success">Edit User</button>
-                </form>
+                    <hr class="m-t-30">
+                    <div class="columns">
+                        <div class="column">
+                            <button class="button is-success  m-b-20" style="width:250px;">Edit User</button>
+                        </div>
+                    </div>
             </div>
+            <div class="column">
+                <label for="roles" class="label">Roles:</label>
+                @foreach ($roles as $role)
+                <div class="field">
+                    <b-checkbox 
+                        :native-value="{{$role->id}}" 
+                        v-model="rolesSelected">{{$role->display_name}}
+                    </b-checkbox>
+                </div>
+                @endforeach
+            </div>
+            {{-- <h2>@{{rolesValue}}</h2> --}}
         </div>
+        
+</form>
 </div>
+
 @endsection
 @section('script')
     <script>
     var app = new Vue({
         el: '#app',
         data: {
-            password_options: 'keep'
+            password_options: 'keep',
+            rolesSelected: {!! $user->roles->pluck('id') !!},
+            rolesValue: {!! $user->roles->pluck('name') !!}
         }
     });
     </script>

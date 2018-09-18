@@ -19,6 +19,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Roles</th>
                     <th>Date Created</th>
                     <th>Actions</th>
                 </tr>
@@ -29,8 +30,19 @@
                     <th>{{ $user->id}}</th>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
+                    <td>
+                        {{$user->roles->count() == 0 ? '-' : ''}}
+                        @foreach ($user->roles as $role)
+                            <div class="field">
+                                {{$role->display_name}} <em>({{$role->description}})</em>
+                            </div>
+                        @endforeach
+                    </td>
                     <td>{{ $user->created_at->toFormattedDateString()}}</td>
-                    <td><a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a></td>
+                    <td>
+                        <a href="{{route('users.show', $user->id)}}" class="button is-outlined">View</a>
+                        <a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use DB;
 use Session;
 use Hash;
@@ -11,34 +12,17 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $user = User::orderBy('id', 'DESC')->paginate(10);
+        $user = User::orderBy('id', 'DESC')->with('roles')->paginate(10);
         return view('manage.users.index')->withUsers($user);
-        // return "hello";
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('manage.users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //Validation
@@ -76,40 +60,22 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('id',$id)->with('roles')->first();
         return view('manage.users.show')->withUser($user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('manage.users.edit')->withUser($user);
+        $roles = Role::all();
+        $user = User::where('id', $id)->with('roles')->first();
+        return view('manage.users.edit')->withUser($user)->withRoles($roles);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        // dd($request->password_options);
+        // dd($request->all());
         //Validation
         $this->validate($request, [
             'name' => 'required|max:255',
@@ -136,21 +102,25 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
 
-        if($user->save()) {
-            return redirect()->route('users.show', $id);
+        if(!empty($request->roles))
+        {
+            $user->syncRoles(explode(',', $request->roles));
+            $user->save();
         } else {
-            Session::flash('error', 'There was a problem saving the updated user info to the database. Try again');
-            return redirect()->route('users.edit', $id);
+            $user->detachRoles($request->roles);
         }
+
+        return redirect()->route('users.show', $id);
+
+        // if() {
+        //     return redirect()->route('users.show', $id);
+        // } else {
+        //     Session::flash('error', 'There was a problem saving the updated user info to the database. Try again');
+        //     return redirect()->route('users.edit', $id);
+        // }
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
