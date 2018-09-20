@@ -4,7 +4,7 @@
             General
         </p>
         <ul class="menu-list">
-            <li><a href="{{route('manage.dashboard')}}" class="">
+            <li><a href="{{route('manage.dashboard')}}" class="{{Nav::isRoute('manage.dashboard')}}">
                 <i class="fa fa-home"></i>Dashboard</a></li>
         </ul>
         <p class="menu-label">
@@ -12,13 +12,17 @@
         </p>
         <ul class="menu-list">
             <li>
-                <a href="{{route('users.index')}}" class="">
+                <a href="{{route('users.index')}}" class="{{Nav::isResource('users')}}">
                 <i class="fa fa-user"></i>Manage Users</a></li>
             <li>
-                <a class="has-submenu"><i class="fa fa-key"></i>Roles &amp; Permissions <i class="fa fa-chevron-down is-pulled-right m-t-4"></i></a>
+                <a class="has-submenu {{Nav::hasSegment(['roles','permissions'], 2)}}"><i class="fa fa-key"></i>Roles &amp; Permissions<i class="fa fa-chevron-down is-pulled-right m-t-4"></i></a>
                 <ul class="submenu">
-                    <li><a href="{{route('roles.index')}}">Roles</a></li>
-                    <li><a href="{{route('permissions.index')}}">Permissions</a></li>
+                    <li>
+                        <a href="{{route('roles.index')}}" class="{{ Nav::isResource('roles') }}">Roles</a>
+                    </li>
+                    <li>
+                        <a href="{{route('permissions.index')}}" class="{{ Nav::isResource('permissions') }}">Permissions</a>
+                    </li>
                 </ul>
             </li>
             <li>

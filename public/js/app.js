@@ -30064,13 +30064,23 @@ module.exports = function spread(callback) {
 
 // Get ClassName
 var accordions = document.getElementsByClassName('has-submenu');
+var accordion = document.getElementsByClassName('submenu');
 
 // Count how many ClassName ?
 for (var i = 0; i < accordions.length; i++) {
+
+    // Stay open menu when accordion 'has-submenu' has 'is-active' class
+    if (accordions[i].classList.contains('is-active')) {
+        var submenu = accordions[i].nextElementSibling;
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+        submenu.style.marginTop = "0.75em";
+        submenu.style.marginBottom = "0.75em";
+    }
+
     // On event click 
     accordions[i].onclick = function () {
         this.classList.toggle('is-active'); // is Active in Bulma 
-        var submenu = this.nextElementSibling; //Grab next element 
+        var submenu = this.nextElementSibling; //use next element 
         // Checks 
         if (submenu.style.maxHeight) {
             // jika di submenu ada max-height maka buat jd NULL
