@@ -1,9 +1,11 @@
 require('./bootstrap');
+require('./manage'); // Manage Side menu
+require('./main'); // Main Nav menu
 window.Vue = require('vue');
 
 import Vue from 'vue'
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
+// import 'buefy/dist/buefy.css'
 
 Vue.use(Buefy)
 

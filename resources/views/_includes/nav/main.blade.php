@@ -7,13 +7,13 @@
                         <img src="{{asset('images/bulma-logo.png')}}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
                     </a>
 
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <div class="navbar-burger burger" data-target="navbar-burger">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
-                    </a>
+                    </div>
                 </div>
-
+                <div class="navbar-menu" id="navbar-burger">
                 <div class="navbar-start">
                     <a href="#" class="navbar-item">Learn</a>
                     <a href="#" class="navbar-item">Discuss</a>
@@ -46,6 +46,7 @@
                             </div>
                     </div>
                 @endif
+                </div>
                 </div>
             </div>
         </nav>
