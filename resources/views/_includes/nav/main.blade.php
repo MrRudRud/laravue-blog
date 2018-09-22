@@ -7,6 +7,14 @@
                         <img src="{{asset('images/bulma-logo.png')}}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
                     </a>
 
+                    @if (Request::segment(1) == "manage")
+                     <a class="navbar-item is-hidden-desktop" id="admin-slideout-button">
+                        <span class="icon"><i class="fa fa-arrow-circle-right fa-lg"></i></span>
+                     </a>
+                    {{-- @else 
+                       <a class="navbar-item is-hidden-desktop" id="admin-slideout-button">
+                       </a> --}}
+                    @endif
                     <div class="navbar-burger burger" data-target="navbar-burger">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>

@@ -1,7 +1,17 @@
+const adminSlideoutButton = document.getElementById('admin-slideout-button');
 
-// Get ClassName
+//click event for adminSlideoutButton
+if(adminSlideoutButton) {
+    adminSlideoutButton.onclick = function () {
+        // transition for button
+        this.classList.toggle('is-active');
+        // transition for menu
+        document.getElementById('admin-side-menu').classList.toggle('is-active');
+    }
+}
+
+// Get element by ClassName
 const accordions = document.getElementsByClassName('has-submenu');
-const accordion = document.getElementsByClassName('submenu');
 
 // Count how many ClassName ?
 for (let i = 0; i < accordions.length; i++) {

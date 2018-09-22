@@ -30061,10 +30061,20 @@ module.exports = function spread(callback) {
 /* 34 */
 /***/ (function(module, exports) {
 
+var adminSlideoutButton = document.getElementById('admin-slideout-button');
 
-// Get ClassName
+//click event for adminSlideoutButton
+if (adminSlideoutButton) {
+    adminSlideoutButton.onclick = function () {
+        // transition for button
+        this.classList.toggle('is-active');
+        // transition for menu
+        document.getElementById('admin-side-menu').classList.toggle('is-active');
+    };
+}
+
+// Get element by ClassName
 var accordions = document.getElementsByClassName('has-submenu');
-var accordion = document.getElementsByClassName('submenu');
 
 // Count how many ClassName ?
 for (var i = 0; i < accordions.length; i++) {

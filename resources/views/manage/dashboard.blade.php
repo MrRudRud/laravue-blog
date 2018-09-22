@@ -25,7 +25,7 @@ var timeuser = Intl.DateTimeFormat().resolvedOptions();
 var app = new Vue({
     el: '#app',
     data: {
-        time: timezone,
+        time: this.timezone,
         offset: this.offset,
         timeuser: this.timeuser
     },
