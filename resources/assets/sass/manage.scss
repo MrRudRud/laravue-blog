@@ -18,24 +18,25 @@
 #admin-side-menu {
     position: fixed;
     top: 4rem;
-    left: -300px; // hidden by default
+    left: -250px; // hidden by default when mobile first off screen
     height: 500vh;
-    width: 300px; // default setting 
-    background-color: white;
+    width: 250px; // default setting 
+    // background-color: white;
     overflow-y: scroll;
     transition: left 0.35s ease-in-out;
-    &.is-active {
-        transition: left 0.35s ease-in-out;
-        left: 0;
-    }
 
     //media query
     @include desktop {
-        left: 0;
+        left: 0; // when the screen desktop 
     }
     // @media only screen and (min-width: 1024) {
         // left: 0;
     // }
+ 
+    &.is-active {
+        transition: left 0.35s ease-in-out;
+        left: 0;
+    }
 }
 
 #admin-slideout-button {
@@ -60,7 +61,6 @@
 }
 
 .management-area {
-    color: whitesmoke;
     position: absolute;
     top: 4rem;
     left: 300px;

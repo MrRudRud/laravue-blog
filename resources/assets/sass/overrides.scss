@@ -1,6 +1,6 @@
 
 body {
-    background: $white-ter !important;
+    background: $white-ter;
 }
 
 //  ==============================
@@ -8,15 +8,15 @@ body {
 //  ==============================
 
 .is-muted {
-    color: $grey-light !important;
+    color: $grey-light;
 }
 
 a.is-muted:hover {
-    color: $grey !important;
+    color: $grey;
 }
 
 .navbar {
-    min-height: 4.25rem !important; 
+    min-height: 4.25rem; 
 }
 
 .navbar-item {

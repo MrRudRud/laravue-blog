@@ -8,6 +8,13 @@
                 <i class="fa fa-home"></i>Dashboard</a></li>
         </ul>
         <p class="menu-label">
+            Content
+        </p>
+        <ul class="menu-list">
+            <li><a href="{{route('posts.index')}}" class="{{Nav::isRoute('posts.index')}}">
+                <i class="fa fa-share-square"></i>Blog Posts</a></li>
+        </ul>
+        <p class="menu-label">
             Administration
         </p>
         <ul class="menu-list">
