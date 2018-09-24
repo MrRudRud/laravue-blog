@@ -11,7 +11,7 @@
             Content
         </p>
         <ul class="menu-list">
-            <li><a href="{{route('posts.index')}}" class="{{Nav::isRoute('posts.index')}}">
+            <li><a href="{{route('posts.create')}}" class="{{Nav::isRoute('posts.create')}}">
                 <i class="fa fa-share-square"></i>Blog Posts</a></li>
         </ul>
         <p class="menu-label">
